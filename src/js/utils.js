@@ -19,36 +19,27 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   };
   const defaultObserverOptions = {
-    threshold: 0.1,
+    threshold: 0.4,
   };
   const defaultObserver = new IntersectionObserver(observerCallback, defaultObserverOptions);
-  const targetElements = document.querySelectorAll('.js-fade, .js-fadeup, .js-fadein');
+  const targetElements = document.querySelectorAll('.js-fade, .js-fade-down, .js-scrollin');
   targetElements.forEach((target) => {
     defaultObserver.observe(target);
   });
 
-  const anchorLink = document.querySelector('.js-anchor-link');
-  if (anchorLink) {
-    const anchorLinkHeight = anchorLink.offsetHeight;
-    const links = document.querySelectorAll('.js-scroll-link');
-    links.forEach((link) => {
-      link.addEventListener('click', (event) => {
-        event.preventDefault();
-        const targetId = link.getAttribute('href').substring(1);
-        if (targetId === '') {
-          window.scrollTo({
-            top: 0,
-            behavior: 'smooth',
-          });
-          return;
-        }
-        const targetElement = document.getElementById(targetId);
-        const targetPosition = targetElement.getBoundingClientRect().top + window.scrollY - anchorLinkHeight;
+  document.querySelectorAll('a[href^="#"]').forEach((link) => {
+    link.addEventListener('click', (e) => {
+      e.preventDefault();
+      const target = document.querySelector(link.getAttribute('href'));
+      if (target) {
+        const header = document.querySelector('.l-header');
+        const headerHeight = header && window.innerWidth >= 768 ? header.offsetHeight : 0;
+        const targetPosition = target.getBoundingClientRect().top + window.scrollY - headerHeight;
         window.scrollTo({
           top: targetPosition,
           behavior: 'smooth',
         });
-      });
+      }
     });
-  }
+  });
 });
