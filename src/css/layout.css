@@ -134,6 +134,7 @@
   inline-size: calc(578 / var(--layout-width-scroll) * 100%);
   margin-inline: auto;
 }
+
 .l-hero__title-line--center {
   display: block;
   inline-size: calc(540 / var(--layout-width-scroll) * 100%);
