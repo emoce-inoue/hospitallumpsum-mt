@@ -133,48 +133,17 @@
   display: block;
   inline-size: calc(578 / var(--layout-width-scroll) * 100%);
   margin-inline: auto;
-  opacity: 0;
-  translate: 0 15px;
 }
-
-.l-hero__title.js-load--loaded .l-hero__title-line--top {
-  opacity: 1;
-  translate: 0;
-  transition:
-    opacity 0.6s ease 0.3s,
-    translate 0.6s ease 0.3s;
-}
-
 .l-hero__title-line--center {
   display: block;
   inline-size: calc(540 / var(--layout-width-scroll) * 100%);
   margin: calc(22 / var(--layout-width-scroll) * 100%) auto 0;
-  opacity: 0;
-  translate: 0 15px;
-}
-
-.l-hero__title.js-load--loaded .l-hero__title-line--center {
-  opacity: 1;
-  translate: 0;
-  transition:
-    opacity 0.6s ease 0.6s,
-    translate 0.6s ease 0.6s;
 }
 
 .l-hero__title-line--bottom {
   display: block;
   inline-size: calc(537 / var(--layout-width-scroll) * 100%);
   margin: calc(21 / var(--layout-width-scroll) * 100%) auto 0;
-  opacity: 0;
-  scale: 0.85;
-}
-
-.l-hero__title.js-load--loaded .l-hero__title-line--bottom {
-  opacity: 1;
-  scale: 1;
-  transition:
-    opacity 0.5s ease 1s,
-    scale 0.6s cubic-bezier(0.06, 0.87, 0.38, 1.55) 1s;
 }
 
 .l-hero__balloon {
